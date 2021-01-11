@@ -8,7 +8,7 @@ USER root
 RUN echo 'memory_limit = -1' >> /etc/php.ini
 USER 1001
 
-RUN @echo 'Beginning...'
+RUN echo 'Beginning...'
 
 # cd into our app's root dir
 RUN cd /opt/app-root/src/
