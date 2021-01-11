@@ -8,12 +8,16 @@ USER root
 RUN echo 'memory_limit = -1' >> /etc/php.ini
 USER 1001
 
+RUN @echo 'Beginning...'
+
 # cd into our app's root dir
 RUN cd /opt/app-root/src/
 
-COPY composer.json /opt/app-root/src/
-COPY composer.lock /opt/app-root/src/
+COPY composer.json .
 
-CMD /opt/app-root/src/vendor/bin/composer install
+
+
+CMD bash -c "composer install"
+
 
 
