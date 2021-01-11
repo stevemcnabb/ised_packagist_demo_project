@@ -14,8 +14,6 @@ RUN cd /opt/app-root/src/
 COPY composer.json /opt/app-root/src/
 COPY composer.lock /opt/app-root/src/
 
-
-RUN /opt/app-root/src/vendor/bin/composer update
-RUN /opt/app-root/src/vendor/bin/composer install
+CMD /opt/app-root/src/vendor/bin/composer install
 
 
