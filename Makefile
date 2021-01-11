@@ -59,8 +59,8 @@ blammo:
 	@echo
 	docker-compose down
 	
-	docker image rm ised_packagist_demo_drupal 
-	docker volume rm packagist-demo-drupal-data
+	docker image rm -f ised_packagist_demo_drupal 
+	docker volume rm -f packagist-demo-drupal-data
 
 .PHONY: portainer
 portainer: 
