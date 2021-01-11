@@ -36,12 +36,24 @@ services:
       AWS_S3_BUCKET: $AWS_S3_BUCKET
       AWS_S3_REGION: $AWS_S3_REGION
       PATH: $PATH:/tmp
+  portainer:
+      image: portainer/portainer
+      command: -H unix:///var/run/docker.sock
+      restart: always
+      ports:
+        - 9000:9000
+        - 8000:8000
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - portainer_data:/data
+
 
 volumes:
   packagist-demo-drupal-data:
     external: true
   packagist-demo-postgres-database:
     external: true
+  portainer_data:
 
 
 

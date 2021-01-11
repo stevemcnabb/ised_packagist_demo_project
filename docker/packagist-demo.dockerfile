@@ -11,6 +11,9 @@ USER 1001
 # cd into our app's root dir
 RUN cd /opt/app-root/src
 RUN echo "BUILDING!"
+CMD composer update
+CMD composer install
 
-RUN composer update && composer install
+
+#RUN composer install
 

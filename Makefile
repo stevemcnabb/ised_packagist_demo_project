@@ -47,13 +47,18 @@ blammo:
 	@echo BLAM! BLAM! BLAM! BLAM! BLAM!
 	@echo
 	@echo
-	docker image rm packagist-demo_drupal
+	docker-compose down
+	docker image rm ised_packagist_demo_drupal
 
 .PHONY: portainer
 portainer: 
-	docker run -d -p 9000:9000 -p 8000:8000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer 
+	docker run -d -p 9000:9000 -p 8000:8000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer -H unix:///var/run/docker.sock
+	#docker run -d -p 9000:9000 -p 8000:8000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer --admin-password='_8c7lRs263yJZ]m05tz*^X`(T-:OA1gf'
 	# --admin-password='k37P*eMT6q&tOD_%uNH4=y+\KX:8J209'
 
+portainer-reset:
+	make down
+	 docker run --rm -v portainer_data:/data portainer/helper-reset-password
 
 
 
