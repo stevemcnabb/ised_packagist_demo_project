@@ -1,0 +1,7 @@
+ised_test_module_1.example:
+  path: '/ised-test-module-1/test'
+  defaults:
+    _title: 'Test module output'
+    _controller: '\Drupal\ised_test_module_1\Controller\IsedTestModule1Controller::build'
+  requirements:
+    _permission: 'access content'

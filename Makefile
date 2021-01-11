@@ -5,6 +5,7 @@ up:
 	@echo Bringing docker containers online
 	@echo
 	@echo
+	docker volume create --name=packagist-demo-drupal-data
 	docker-compose up -d
 
 .PHONY: down
@@ -24,7 +25,16 @@ rebuild:
 # the timing does not work from Makefile for some reason - cut and paste to bash
 .PHONY: timedbuild
 timedbuild:
-	gtime make up
+	docker volume create packagist-demo-drupal-data
+	gtime -f '%e Seconds ' make up
+
+.PHONY: full_rebuild_cycle
+full_rebuild_cycle:
+	docker-compose down
+	make blammo
+	
+	make timedbuild
+
 
 .PHONY: shell
 shell:
@@ -48,7 +58,8 @@ blammo:
 	@echo
 	@echo
 	docker-compose down
-	docker image rm ised_packagist_demo_drupal
+	docker volume rm packagist-demo-drupal-data
+
 
 .PHONY: portainer
 portainer: 

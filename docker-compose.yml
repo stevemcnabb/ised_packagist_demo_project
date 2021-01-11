@@ -5,13 +5,12 @@ services:
     build:
       context: .
       dockerfile: docker/packagist-demo.dockerfile 
-    #image: registry.apps.dev.ocp-dev.ised-isde.canada.ca/ised-ci/drupal-wxt:ised-8.x
     container_name: packagist-demo 
     ports: 
       - 8080:8080 
     volumes:
-#     - /c/workspace/test/data:/opt/app-root/src/data
-#      - /Users/stv/Desktop/InProgress/ISED/workspace/packagist-demo/ised:/opt/app-root/src/data/sites/default/modules/ised
+    # For local development, you can map a local directory to the image instead of using the volume
+    #  - <your local dev directory>:/opt/app-root/src/data/sites/default/
       - packagist-demo-drupal-data:/opt/app-root/src/data
     env_file:
       - .env 

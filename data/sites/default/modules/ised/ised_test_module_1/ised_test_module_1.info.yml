@@ -1,0 +1,6 @@
+name: ISED Test Module 1
+type: module
+description: I am a test
+package: ISED
+core: 8.x
+core_version_requirement: ^8 || ^9
