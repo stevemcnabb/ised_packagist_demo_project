@@ -4,7 +4,7 @@ services:
   drupal: 
     build:
       context: .
-      dockerfile: docker/packagist-demo.dockerfile 
+      dockerfile: dockerfiles/packagist-demo.dockerfile 
     container_name: packagist-demo 
     ports: 
       - 8080:8080 
