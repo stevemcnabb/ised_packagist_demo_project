@@ -10,8 +10,10 @@ USER 1001
 
 # cd into our app's root dir
 RUN cd /opt/app-root/src
+
 COPY composer.json /opt/app-root/src/
 COPY composer.lock /opt/app-root/src/
 
-CMD composer install
+RUN composer install
+
 
