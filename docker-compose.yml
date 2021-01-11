@@ -1,0 +1,48 @@
+version: "3" 
+
+services: 
+  drupal: 
+    build:
+      context: .
+      dockerfile: docker/packagist-demo.dockerfile 
+    #image: registry.apps.dev.ocp-dev.ised-isde.canada.ca/ised-ci/drupal-wxt:ised-8.x
+    container_name: packagist-demo 
+    ports: 
+      - 8080:8080 
+    volumes:
+#     - /c/workspace/test/data:/opt/app-root/src/data
+#      - /Users/stv/Desktop/InProgress/ISED/workspace/packagist-demo/ised:/opt/app-root/src/data/sites/default/modules/ised
+      - packagist-demo-drupal-data:/opt/app-root/src/data
+    env_file:
+      - .env 
+    environment:
+      - COMPOSER_MEMORY_LIMIT=-1
+  
+  postgres: 
+    image: registry.apps.dev.ocp-dev.ised-isde.canada.ca/ised-ci/ised-postgresql:9.6  
+    container_name: postgres-packagist-demo
+    ports: 
+      - 5432:5432 
+    volumes: 
+      - packagist-demo-postgres-database:/var/lib/pgsql/data 
+    environment: 
+      POSTGRESQL_USER: $POSTGRESQL_USER 
+      POSTGRESQL_PASSWORD: $POSTGRESQL_PASSWORD 
+      POSTGRESQL_DATABASE: $POSTGRESQL_DATABASE 
+      DB_USERNAME: $DB_USERNAME 
+      DB_PASSWORD: $DB_PASSWORD 
+      AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+      AWS_S3_BUCKET: $AWS_S3_BUCKET
+      AWS_S3_REGION: $AWS_S3_REGION
+      PATH: $PATH:/tmp
+
+volumes:
+  packagist-demo-drupal-data:
+    external: true
+  packagist-demo-postgres-database:
+    external: true
+
+
+
+

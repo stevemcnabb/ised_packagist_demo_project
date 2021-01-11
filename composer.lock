@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ce5ba8ea775d0dc8c1b4272d6106dc3",
+    "content-hash": "f9722f2873138b3e4f9367c2213b1843",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -12096,6 +12096,42 @@
             "time": "2020-01-30T12:17:27+00:00"
         },
         {
+            "name": "steve.mcnabb/ised_test_module_1",
+            "version": "v0.01a",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stevemcnabb/ised-demo-module-one.git",
+                "reference": "08e688b8e7d493374d2f0deecc45e70298c9420a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stevemcnabb/ised-demo-module-one/zipball/08e688b8e7d493374d2f0deecc45e70298c9420a",
+                "reference": "08e688b8e7d493374d2f0deecc45e70298c9420a",
+                "shasum": ""
+            },
+            "type": "ised-drupal-module",
+            "extra": {
+                "installer_types": [
+                    "ised-drupal-module"
+                ],
+                "installer_paths": {
+                    "data/sites/default/modules/ised": [
+                        "type:ised-drupal-module"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "A test drupal module",
+            "support": {
+                "issues": "https://github.com/stevemcnabb/ised-demo-module-one/issues",
+                "source": "https://github.com/stevemcnabb/ised-demo-module-one/tree/v0.01a"
+            },
+            "time": "2021-01-09T21:53:33+00:00"
+        },
+        {
             "name": "swagger-api/swagger-ui",
             "version": "v3.39.0",
             "source": {
@@ -18848,6 +18884,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupalwxt/wxt": 20,
+        "steve.mcnabb/ised_test_module_1": 15,
         "drupal/console-extend-plugin": 20
     },
     "prefer-stable": true,

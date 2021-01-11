@@ -2,7 +2,7 @@
     "name": "steve.mcnabb/ised_packagist_demo",
     "description": "Drupal 8 demo  built with the WxT distribution.",
     "type": "project",
-    "license": "GPL-2.0+",
+    "license": "GPL-2.0-or-later",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
@@ -11,7 +11,8 @@
         "drupalwxt/wxt": "dev-8.x-3.x",
         "drush/drush": "^9.0",
         "oomphinc/composer-installers-extender": "^1.1 || ^2",
-        "drupal/admin_toolbar": "^2.4"
+        "drupal/admin_toolbar": "^2.4",
+        "steve.mcnabb/ised_test_module_1": "^0.01.0@alpha"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8",
@@ -59,7 +60,8 @@
         },
         "installer-types": [
             "bower-asset",
-            "npm-asset"
+            "npm-asset",
+            "ised-drupal-module"
         ],
         "installer-paths": {
             "html/core": [
@@ -82,6 +84,9 @@
             ],
             "drush/contrib/{$name}": [
                 "type:drupal-drush"
+            ],
+            "html/sites/default/modules/ised": [
+                "type:ised-drupal-module"
             ]
         },
         "composer-exit-on-patch-failure": true,
